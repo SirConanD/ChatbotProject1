@@ -1,9 +1,13 @@
 package chatbot.model;
 
+import java.util.ArrayList;
+
 public class Chatbot
 {
 	private String name;
 	private int numberOfChats;
+	private ArrayList<String> memeList;
+	
 	
     /**
      * creates a Chatbot object with a specified name.  Initializes the total chats to 0.
