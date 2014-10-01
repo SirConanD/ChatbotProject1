@@ -6,7 +6,7 @@ import chatbot.view.ChatbotView;
 /**
  * Application Controller for the chatbot project.
  * @author gfet1302
- * @version 1.2 10/1/14
+ * @version 1.3 10/1/14
  */
 public class ChatbotAppController
 {
