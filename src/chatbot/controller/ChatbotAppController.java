@@ -1,14 +1,27 @@
 package chatbot.controller;
 
-import javax.swing.JOptionPane;
-
 import chatbot.model.Chatbot;
 import chatbot.view.ChatbotView;
 
+/**
+ * Application Controller for the chatbot project.
+ * @author gfet1302
+ * @version 1.2 10/1/14
+ */
 public class ChatbotAppController
 {
+	/**
+	 * The GUI view for the application.
+	 */
 	private ChatbotView appView;
+	/**
+	 * The chatbot Model instance.
+	 */
 	private Chatbot notSoCleverBot;
+	/**
+	 * The startup message for the chatbot application.
+	 */
+	private String startMessage;
     
 	/**
 	 * Creates a ChatbotAppController and initializes the associated VIew and Model objects.
@@ -17,12 +30,13 @@ public class ChatbotAppController
 	{
 		appView = new ChatbotView(this);
         notSoCleverBot = new Chatbot("Mr. Chatbot");
+        startMessage = "Welcome to the " + notSoCleverBot.getName() +" Chatbot, type in your name.";
 	}
 	
 	
 	/**
 	 * Allows other objects access to the notSoCleverBot.
-	 * @return The CHatbot for this app.
+	 * @return The Chatbot for this app.
 	 */
 	public Chatbot getNotSoCleverBot()
 	{
@@ -34,21 +48,22 @@ public class ChatbotAppController
 	 */
 	public void start()
 	{
-		String message = JOptionPane.showInputDialog(null, "Welcome to Chatbot, type in your name.");
+		String message = appView.displayChatbotConversations(startMessage);
 		
 		while(!notSoCleverBot.quitChecker(message))
 		{
 			message = appView.displayChatbotConversations(message);
 		}
 		
+		quit();
 	}
 	
 	/**
-	 * This quits the program.
+	 * This quits the program with a message to the user that is using the application.
 	 */
 	private void quit()
 	{
-		JOptionPane.showMessageDialog(null, "bye");
+		appView.displayInformation("good bye.");
 		System.exit(0);
 	}
 }
