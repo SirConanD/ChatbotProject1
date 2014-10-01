@@ -6,7 +6,7 @@ import chatbot.view.ChatbotView;
 /**
  * Application Controller for the chatbot project.
  * @author gfet1302
- * @version 1.3 10/1/14
+ * @version 1.4 10/1/14
  */
 public class ChatbotAppController
 {
@@ -33,7 +33,6 @@ public class ChatbotAppController
         startMessage = "Welcome to the " + notSoCleverBot.getName() +" Chatbot, type in your name.";
 	}
 	
-	
 	/**
 	 * Allows other objects access to the notSoCleverBot.
 	 * @return The Chatbot for this app.
@@ -52,6 +51,7 @@ public class ChatbotAppController
 		
 		while(!notSoCleverBot.quitChecker(message))
 		{
+			message = notSoCleverBot.processText(message);
 			message = appView.displayChatbotConversations(message);
 		}
 		
