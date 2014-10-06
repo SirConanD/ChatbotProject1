@@ -8,6 +8,7 @@ public class Chatbot
 	private String name;
 	private int numberOfChats;
 	private ArrayList<String> memeList;
+	private String yogscastContent;
 	
 	
     /**
@@ -18,8 +19,10 @@ public class Chatbot
 	{
 		this.name = name;
 		numberOfChats = 0;
-		
-	
+		yogscastContent = "";
+        /**
+         * Fills the Array List with a list of Memes.	
+         */
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
 	}
@@ -84,17 +87,64 @@ public class Chatbot
 		String processedText = "";
 		incrementChats();
 		
-		if(memeChecker(userText))
+		int randomChoice = (int) (Math.random() * 3);
+		
+		if (randomChoice == 0)
 		{
-			processedText = "hey, you found a meme: " +userText;
-			processedText += " isn't that cool.";
+			//use stringLengthChecker here
+		}
+		else if (randomChoice == 1)
+		{
+			//use contentChecker here
 		}
 		else
 		{
-			processedText = "Boring, that wasn't a meme.";
+		   if(memeChecker(userText))
+		   {
+			   processedText = "hey, you found a meme: " +userText;
+			   processedText += " isn't that cool.";
+		   }
+		   else
+		   {
+			   processedText = "Boring, that wasn't a meme.";
+		   }
 		}
 		
+		
 		return processedText;
+	}
+	
+	/**
+	 * checks for a certain words in the user input.
+	 * @param input What the user puts in.
+	 * @return Talks about preset content. 
+	 */
+	private boolean contentChecker(String input)
+	{
+		boolean myContent = false;
+		if(input.contains(yogscastContent))
+		{
+			myContent = true;
+		}
+		
+		return myContent;
+	}
+	
+	/**
+	 * Checks the length of the string.
+	 * @param input User input.
+	 * @return  
+	 */
+	private boolean stringChecker(String input)
+	{
+		boolean tooLong = false;
+		
+		if(input.length() >= 25)
+		{
+			tooLong = true;
+		}
+		
+		return tooLong;
 	}
 	
 	/**
