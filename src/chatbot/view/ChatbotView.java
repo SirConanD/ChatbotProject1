@@ -7,7 +7,7 @@ import chatbot.controller.ChatbotAppController;
 public class ChatbotView
 {
 	/**
-	 * calls the App Controller.
+	 * calls the AppController.
 	 */
     private ChatbotAppController baseController;
     

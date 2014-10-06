@@ -19,9 +19,7 @@ public class Chatbot
 		this.name = name;
 		numberOfChats = 0;
 		
-		/**
-		 * Creates a list of memes.
-		 */
+	
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
 	}
