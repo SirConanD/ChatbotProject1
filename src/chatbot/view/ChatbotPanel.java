@@ -15,16 +15,13 @@ public class ChatbotPanel extends JPanel
 	 * Creates swing button.
 	 */
 	private JButton sampleButton;
-	/**
-	 * Creates swing text field.
-	 */
-	private JTextField sampleField;
 	private JTextArea chatArea;
 	private JScrollPane chatPane;
 	/**
 	 * creates a layout for the panel.
 	 */
 	private SpringLayout baseLayout;
+	private JTextField textField;
 	/**
 	 * Calls the App Controller.
 	 * @param baseController  
@@ -33,15 +30,14 @@ public class ChatbotPanel extends JPanel
 	{
 		this.baseController = baseController;
 		sampleButton = new JButton("click on me please.");
-		sampleField = new JTextField(25);
 		chatArea=new JTextArea(5, 25);
 		chatPane = new JScrollPane(chatArea);
 		
 		baseLayout = new SpringLayout();
-		baseLayout.putConstraint(SpringLayout.SOUTH, sampleButton, -19, SpringLayout.NORTH, chatPane);
-		baseLayout.putConstraint(SpringLayout.EAST, sampleButton, -140, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, chatPane, 150, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, chatPane, 100, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatPane, 150, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, sampleButton, 139, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, sampleButton, -18, SpringLayout.NORTH, chatPane);
+		baseLayout.putConstraint(SpringLayout.WEST, chatPane, 100, SpringLayout.WEST, this);
 		
 		
 		setupPanel();
@@ -64,17 +60,30 @@ public class ChatbotPanel extends JPanel
 		this.setLayout(baseLayout);
 		
 		this.add(sampleButton);
-		this.add(sampleField);
 		this.add(chatPane);
+		
+		JButton btnNewButton = new JButton("Random Meme");
+		baseLayout.putConstraint(SpringLayout.WEST, btnNewButton, 68, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, btnNewButton, -20, SpringLayout.NORTH, sampleButton);
+		add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Random Reference");
+		baseLayout.putConstraint(SpringLayout.NORTH, btnNewButton_1, 0, SpringLayout.NORTH, btnNewButton);
+		baseLayout.putConstraint(SpringLayout.WEST, btnNewButton_1, 55, SpringLayout.EAST, btnNewButton);
+		add(btnNewButton_1);
+		
+		textField = new JTextField();
+		baseLayout.putConstraint(SpringLayout.WEST, textField, 0, SpringLayout.WEST, chatPane);
+		baseLayout.putConstraint(SpringLayout.SOUTH, textField, -10, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, textField, 0, SpringLayout.EAST, chatPane);
+		add(textField);
+		textField.setColumns(10);
 	}
 	/**
 	 * Where all auto generated code goes.
 	 */
 	private void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.WEST, sampleField, 129, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, sampleField, -32, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, sampleField, -66, SpringLayout.EAST, this);
 	}
     /**
      * Creates a listener for buttons.
@@ -90,5 +99,4 @@ public class ChatbotPanel extends JPanel
 		});
 		
 	}
-	
 }
