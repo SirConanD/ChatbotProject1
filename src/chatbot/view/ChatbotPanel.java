@@ -30,14 +30,14 @@ public class ChatbotPanel extends JPanel
 	{
 		this.baseController = baseController;
 		sampleButton = new JButton("click on me please.");
-		chatArea=new JTextArea(5, 25);
+		chatArea = new JTextArea(5, 25);
 		chatPane = new JScrollPane(chatArea);
 		
 		baseLayout = new SpringLayout();
+		baseLayout.putConstraint(SpringLayout.WEST, sampleButton, 118, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, sampleButton, -19, SpringLayout.NORTH, chatPane);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatPane, 150, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, sampleButton, 139, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, sampleButton, -18, SpringLayout.NORTH, chatPane);
-		baseLayout.putConstraint(SpringLayout.WEST, chatPane, 100, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, chatPane, 60, SpringLayout.WEST, this);
 		
 		
 		setupPanel();
@@ -63,27 +63,27 @@ public class ChatbotPanel extends JPanel
 		this.add(chatPane);
 		
 		JButton btnNewButton = new JButton("Random Meme");
-		baseLayout.putConstraint(SpringLayout.WEST, btnNewButton, 68, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, btnNewButton, -20, SpringLayout.NORTH, sampleButton);
 		add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Random Reference");
-		baseLayout.putConstraint(SpringLayout.NORTH, btnNewButton_1, 0, SpringLayout.NORTH, btnNewButton);
-		baseLayout.putConstraint(SpringLayout.WEST, btnNewButton_1, 55, SpringLayout.EAST, btnNewButton);
 		add(btnNewButton_1);
 		
 		textField = new JTextField();
-		baseLayout.putConstraint(SpringLayout.WEST, textField, 0, SpringLayout.WEST, chatPane);
-		baseLayout.putConstraint(SpringLayout.SOUTH, textField, -10, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, textField, 0, SpringLayout.EAST, chatPane);
-		add(textField);
-		textField.setColumns(10);
 	}
 	/**
 	 * Where all auto generated code goes.
 	 */
 	private void setupLayout()
 	{
+		baseLayout.putConstraint(SpringLayout.WEST, btnNewButton, 39, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, btnNewButton_1, 68, SpringLayout.EAST, btnNewButton);
+		baseLayout.putConstraint(SpringLayout.SOUTH, btnNewButton_1, -19, SpringLayout.NORTH, sampleButton);
+		baseLayout.putConstraint(SpringLayout.NORTH, btnNewButton, 0, SpringLayout.NORTH, btnNewButton_1);
+		baseLayout.putConstraint(SpringLayout.NORTH, textField, 6, SpringLayout.SOUTH, chatPane);
+		baseLayout.putConstraint(SpringLayout.WEST, textField, 10, SpringLayout.WEST, chatPane);
+		baseLayout.putConstraint(SpringLayout.EAST, textField, -10, SpringLayout.EAST, chatPane);
+		add(textField);
+		textField.setColumns(10);
 	}
     /**
      * Creates a listener for buttons.
