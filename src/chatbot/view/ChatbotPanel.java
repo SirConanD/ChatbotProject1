@@ -15,7 +15,15 @@ public class ChatbotPanel extends JPanel
 	 * Creates swing button.
 	 */
 	private JButton sampleButton;
+	private JButton memeButton;
+	private JButton randomButton;
+	/**
+	 * creates swing text area.
+	 */
 	private JTextArea chatArea;
+	/**
+	 * Creates swing scroll pane.
+	 */
 	private JScrollPane chatPane;
 	/**
 	 * creates a layout for the panel.
@@ -105,6 +113,10 @@ public class ChatbotPanel extends JPanel
 		
 	}
 	
+	/**
+	 * displays text to the user.
+	 * @param input user text.
+	 */
 	public void displayTextToUser(String input)
 	{
 		chatArea.append("\n" + input);

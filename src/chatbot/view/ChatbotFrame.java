@@ -6,6 +6,9 @@ import chatbot.controller.ChatbotAppController;
 
 public class ChatbotFrame extends JFrame
 {
+	/**
+	 * creates a base panel./
+	 */
 	private ChatbotPanel basePanel;
 	
 	public ChatbotFrame(ChatbotAppController baseController) 
@@ -14,6 +17,9 @@ public class ChatbotFrame extends JFrame
 		setupFrame();
 	}
 	
+	/**
+	 * sets up the size of the frame.
+	 */
     private void setupFrame()
     {
     	this.setContentPane(basePanel);
