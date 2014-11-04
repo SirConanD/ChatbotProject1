@@ -10,6 +10,8 @@ public class Chatbot
 	private ArrayList<String> memeList;
 	private String yogscastContent;
 	
+	private ChatUser myUser;
+	
 	
     /**
      * creates a Chatbot object with a specified name.  Initializes the total chats to 0.
@@ -87,28 +89,31 @@ public class Chatbot
 		String processedText = "";
 		incrementChats();
 		
-		int randomChoice = (int) (Math.random() * 3);
-		
-		if (randomChoice == 0)
+		int randomChoice = (int) (Math.random() * 4);
+		if (user !=null)
 		{
-			//use stringLengthChecker here
+			if (randomChoice == 0)
+			{
+				//use stringLengthChecker here
+			}
+			else if (randomChoice == 1)
+			{
+				//use contentChecker here
+			}
+			else
+			{
+				if(memeChecker(userText))
+				{
+					processedText = "hey, you found a meme: " +userText;
+					processedText += " isn't that cool.";
+				}
+				else
+				{
+					processedText = "Boring, that wasn't a meme.";
+				}
 		}
-		else if (randomChoice == 1)
-		{
-			//use contentChecker here
-		}
-		else
-		{
-		   if(memeChecker(userText))
-		   {
-			   processedText = "hey, you found a meme: " +userText;
-			   processedText += " isn't that cool.";
-		   }
-		   else
-		   {
-			   processedText = "Boring, that wasn't a meme.";
-		   }
-		}
+			}
+	
 		
 		
 		return processedText;

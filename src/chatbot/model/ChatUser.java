@@ -4,13 +4,15 @@ public class ChatUser
 {
 	private String name;
 	private int age;
-	private String FavoriteMovie;
+	private String favoriteMovie;
 	private boolean isGraduated;
 	private boolean isGamer;
 	
 	public ChatUser()
 	{
-		
+		this.name = "";
+		this.age = -999;
+		this.favoriteMovie = "";
 	}
 	
 	public String getName()
@@ -35,7 +37,7 @@ public class ChatUser
 	
 	public String getFavoriteMovie()
 	{
-		return FavoriteMovie;
+		return favoriteMovie;
 	}
 	
 	public void setFavoriteMovie(String favoriteMovie)
