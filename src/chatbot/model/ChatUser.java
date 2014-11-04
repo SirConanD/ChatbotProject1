@@ -42,7 +42,7 @@ public class ChatUser
 	
 	public void setFavoriteMovie(String favoriteMovie)
 	{
-		FavoriteMovie = favoriteMovie;
+		this.favoriteMovie = favoriteMovie;
 	}
 	
 	public boolean isGraduated()

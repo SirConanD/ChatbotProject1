@@ -25,7 +25,7 @@ public class ChatbotView
     {
     	String output = "";
     	
-    	output = JOptionPane.showInputDialog(null, baseController.getNotSoCleverBot().getName() input);
+    	output = JOptionPane.showInputDialog(null, baseController.getNotSoCleverBot().getName() + input);
     	
     	
     	return output;

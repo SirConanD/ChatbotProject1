@@ -90,7 +90,7 @@ public class Chatbot
 		incrementChats();
 		
 		int randomChoice = (int) (Math.random() * 4);
-		if (user !=null)
+		if (userText !=null)
 		{
 			if (randomChoice == 0)
 			{

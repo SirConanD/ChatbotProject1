@@ -2,6 +2,7 @@ package chatbot.controller;
 
 import chatbot.model.Chatbot;
 import chatbot.view.ChatbotFrame;
+import chatbot.view.ChatbotPanel;
 import chatbot.view.ChatbotView;
 
 /**
@@ -57,15 +58,18 @@ public class ChatbotAppController
 	 */
 	public void start()
 	{
-//		String message = appView.displayChatbotConversations(startMessage);
-//		
-//		while(!notSoCleverBot.quitChecker(message))
-//		{
-//			message = notSoCleverBot.processText(message);
-//			message = appView.displayChatbotConversations(message);
-//		}
-//		
-//		quit();
+		ChatbotPanel myAppPanel = (ChatbotPanel) baseFrame.getContentPane();
+		myAppPanel.displayTextToUser(startMessage);
+		
+	} 
+	
+	public String sendTextToChatBot(String userInput)
+	{
+		String respondText = "";
+		
+		respondText = notSoCleverBot.processText(userInput);
+		
+		return respondText;
 	}
 	
 	/**
