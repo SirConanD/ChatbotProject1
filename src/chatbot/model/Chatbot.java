@@ -8,6 +8,8 @@ public class Chatbot
 	private String name;
 	private int numberOfChats;
 	private ArrayList<String> memeList;
+	
+	private ArrayList<String> userInputList;
 	private String yogscastContent;
 	
 	private ChatUser myUser;
@@ -25,8 +27,10 @@ public class Chatbot
         /**
          * Fills the Array List with a list of Memes.	
          */
+		userInputList = new ArrayList<String>();
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
+		myUser = new ChatUser();
 	}
     
 	/**
@@ -89,9 +93,38 @@ public class Chatbot
 		String processedText = "";
 		incrementChats();
 		
-		int randomChoice = (int) (Math.random() * 4);
+		int randomChoice = (int) (Math.random() * 5);
 		if (userText !=null)
 		{
+			if (numberOfChats < 5)
+			{
+				if(numberOfChats == 0)
+				{
+					myUser.setName(userText);
+					processedText = "Hello " + myUser.getName() + " what is your age?";
+				}
+				else if(numberOfChats == 1)
+				{
+					int age = Integer.parseInt(userText);
+					myUser.setAge(age);
+					processedText = "Hello " + myUser.getName() + ", you are really" + myUser.getAge() +" years old?";
+					processedText += "\nWhat is your favorite movie?";
+				}
+				else if (numberOfChats == 2)
+				{
+					
+				}
+				else if (numberOfChats == 3)
+				{
+					
+				}
+				else
+				{
+					
+				}
+			}
+			else
+			{
 			if (randomChoice == 0)
 			{
 				//use stringLengthChecker here
@@ -100,7 +133,7 @@ public class Chatbot
 			{
 				//use contentChecker here
 			}
-			else
+			else if (randomChoice == 2)
 			{
 				if(memeChecker(userText))
 				{
@@ -111,12 +144,44 @@ public class Chatbot
 				{
 					processedText = "Boring, that wasn't a meme.";
 				}
-		}
+			}	
+			else if (randomChoice == 3)
+			{
+				//User based talking
 			}
-	
-		
-		
+			else if (randomChoice == 4)
+			{
+				userInputList.add(0, userText);
+				processedText = "Thanks for the input, " + myUser.getName();
+			}
+			else
+			{
+				//userInputChecker
+			}
+	     }
+	  }		
+	    incrementChats();
 		return processedText;
+	}
+	
+	private boolean userInputChecker(String input)
+	{
+		boolean matchesInput = false;
+		
+		if(userInputList.size() > 0)
+		{
+			for(int loopCount = 0; loopCount < userInputList.size(); loopCount++)
+			{
+				if(input.equalsIgnoreCase(userInputList.get(loopCount)))
+				{
+					matchesInput = true;
+					userInputList.remove(loopCount);
+					loopCount--;
+				}
+			}
+		}
+		
+		return matchesInput;
 	}
 	
 	/**
