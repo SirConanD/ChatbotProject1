@@ -60,6 +60,7 @@ public class ChatbotPanel extends JPanel
 	{
 		chatArea.setLineWrap(true);
 		chatArea.setWrapStyleWord(true);
+		chatArea.setEditable(false);
 	}
 	
 	private void setupPanel()

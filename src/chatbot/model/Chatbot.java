@@ -118,7 +118,7 @@ public class Chatbot
 				{
 					
 				}
-				else
+				else if (numberOfChats == 4)
 				{
 					
 				}
@@ -127,7 +127,14 @@ public class Chatbot
 			{
 			if (randomChoice == 0)
 			{
-				//use stringLengthChecker here
+			   if (stringLengthChecker(userText))
+			   {
+				   processedText = "that is wayyyyyyyyyy too long to read";
+			   }
+			   else
+			   {
+				   processedText = "short messages are short on meaning.";
+			   }
 			}
 			else if (randomChoice == 1)
 			{
@@ -154,9 +161,16 @@ public class Chatbot
 				userInputList.add(0, userText);
 				processedText = "Thanks for the input, " + myUser.getName();
 			}
-			else
+			else if (randomChoice == 5)
 			{
-				//userInputChecker
+				If(userInputChecker(userInput))
+				{
+					randomTopic = "yikes you knew what you said before";
+				}
+				else
+				{
+					randomTopic = "I don't "
+				}
 			}
 	     }
 	  }		
@@ -254,4 +268,44 @@ public class Chatbot
 		return okToQuit;		
 	}
 
+	/**
+	 * Checks to see if the name of the Chatbot is contained within the String supplied by the user.
+	 * @param currentInput The user supplied String.
+	 * @return Whether the name is inside of not.
+	 */
+	private boolean chatbotNameChecker(String currentInput)
+	{
+		boolean hasNameInString = false;
+		
+		if(currentInput.indexOf(this.getName()) > -1)
+		{
+			hasNameInString = true;
+		}
+		
+		return hasNameInString;
+	}
+	
+	private String chatbotNameConversation(String currentInput)
+	{
+		String nameConversation = "This is what you typed after my name: ";
+		
+		nameConversation.concat(currentInput.substring(currentInput.indexOf(this.getName()) + this.getName().length() -1));
+		
+		return nameConversation;
+	}
+	
+	private String noNameConversation(String currentInput)
+	{
+		String notNamed = "";
+		
+		int smallRandom = (int) (Math.random() * currentInput.length() / 2);
+		int largerRandom = (int) (smallRandom + (Math.random() * (currentInput.length() / 2)) + 1);
+		
+		notNamed = "You didn't say my name so here is a special phrase: " + currentInput.substring(smallRandom, largerRandom);
+		
+		return notNamed;
+	}
+	
+	
+	
 }
