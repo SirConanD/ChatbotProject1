@@ -91,13 +91,27 @@ public class Chatbot
 	public String processText(String userText)
 	{
 		String processedText = "";
-		incrementChats();
 		
-		int randomChoice = (int) (Math.random() * 5);
-		if (userText !=null)
+		if (userText !=null && userText.length() > 0)
 		{
 			if (numberOfChats < 5)
 			{
+				processedText = introductionUser(userText);
+			}
+			else	
+			{
+				processedText = randomChatTopic(userText);
+			}
+		}		
+		else
+		{
+			numberOfChats--;
+			processedText = "Answer the question!";
+		}	
+		incrementChats();
+		return processedText;
+				
+	
 				if(numberOfChats == 0)
 				{
 					myUser.setName(userText);
@@ -122,7 +136,6 @@ public class Chatbot
 				{
 					
 				}
-			}
 			else
 			{
 			if (randomChoice == 0)
@@ -169,11 +182,21 @@ public class Chatbot
 				}
 				else
 				{
-					randomTopic = "I don't "
+					randomTopic = "I don't think I have heard that before";
 				}
 			}
-	     }
-	  }		
+			else
+			{
+				if(chatbotNameChecker(userInput))
+				{
+					randomTopic = chatbotNameConversation(userInput);
+				}
+				else
+				{
+					randomTopic = noNameConversation(userInput);
+				}
+			}
+	    	
 	    incrementChats();
 		return processedText;
 	}
