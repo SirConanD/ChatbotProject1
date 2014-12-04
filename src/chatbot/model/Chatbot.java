@@ -201,6 +201,11 @@ public class Chatbot
 		return processedText;
 	}
 	
+	/**
+	 * Creates a checker for the user input.
+	 * @param input  The user input.
+	 * @return continues or stops a loop.
+	 */
 	private boolean userInputChecker(String input)
 	{
 		boolean matchesInput = false;
@@ -308,6 +313,11 @@ public class Chatbot
 		return hasNameInString;
 	}
 	
+	/**
+	 * creates a class for when the user mentions the chatbots name.
+	 * @param currentInput  The users current input.
+	 * @return   a conversation to do with the name of the chatbot.
+	 */
 	private String chatbotNameConversation(String currentInput)
 	{
 		String nameConversation = "This is what you typed after my name: ";
@@ -317,6 +327,11 @@ public class Chatbot
 		return nameConversation;
 	}
 	
+	/**
+	 * Creates a class for if the name of the chatbot is mentioned.
+	 * @param currentInput  The users current input.
+	 * @return  a text stating that they did not use the name with a special phrase.
+	 */
 	private String noNameConversation(String currentInput)
 	{
 		String notNamed = "";

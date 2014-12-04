@@ -63,6 +63,11 @@ public class ChatbotAppController
 		
 	} 
 	
+	/**
+	 * A class to send a string of text to the chatbot.
+	 * @param userInput The users text input.
+	 * @return it processes the text and sends it to the chatbot.
+	 */
 	public String sendTextToChatBot(String userInput)
 	{
 		String respondText = "";
