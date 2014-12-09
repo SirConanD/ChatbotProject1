@@ -112,6 +112,7 @@ public class Chatbot
 		return processedText;
 				
 	
+				Object randomTopic;
 				if(numberOfChats == 0)
 				{
 					myUser.setName(userText);
@@ -187,6 +188,7 @@ public class Chatbot
 			}
 			else
 			{
+				String userInput;
 				if(chatbotNameChecker(userInput))
 				{
 					randomTopic = chatbotNameConversation(userInput);
@@ -201,6 +203,18 @@ public class Chatbot
 		return processedText;
 	}
 	
+	private String randomChatTopic(String userText)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private String introductionUser(String userText)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/**
 	 * Creates a checker for the user input.
 	 * @param input  The user input.
