@@ -3,16 +3,14 @@ package chatbot.view;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
-
 import chatbot.controller.ChatbotAppController;
 
 public class ChatbotPanel extends JPanel
 {
 	private ChatbotAppController baseController;
 	/**
-	 * Creates swing button.
+	 * Creates swing buttons.
 	 */
 	private JButton sampleButton;
 	private JButton memeButton;

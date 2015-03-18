@@ -81,8 +81,6 @@ public class Chatbot
 		memeList.add("Troll");
 	}
 	
-	
-	
 	/**
 	 * Processed the supplied text from the user to provide a message from Chatbot.
 	 * @param userText The user supplied text.
@@ -111,107 +109,86 @@ public class Chatbot
 		incrementChats();
 		return processedText;
 				
-	
-				Object randomTopic;
-				if(numberOfChats == 0)
-				{
-					myUser.setName(userText);
-					processedText = "Hello " + myUser.getName() + " what is your age?";
-				}
-				else if(numberOfChats == 1)
-				{
-					int age = Integer.parseInt(userText);
-					myUser.setAge(age);
-					processedText = "Hello " + myUser.getName() + ", you are really" + myUser.getAge() +" years old?";
-					processedText += "\nWhat is your favorite movie?";
-				}
-				else if (numberOfChats == 2)
-				{
-					
-				}
-				else if (numberOfChats == 3)
-				{
-					
-				}
-				else if (numberOfChats == 4)
-				{
-					
-				}
-			else
-			{
-			if (randomChoice == 0)
-			{
-			   if (stringLengthChecker(userText))
-			   {
-				   processedText = "that is wayyyyyyyyyy too long to read";
-			   }
-			   else
-			   {
-				   processedText = "short messages are short on meaning.";
-			   }
-			}
-			else if (randomChoice == 1)
-			{
-				//use contentChecker here
-			}
-			else if (randomChoice == 2)
-			{
-				if(memeChecker(userText))
-				{
-					processedText = "hey, you found a meme: " +userText;
-					processedText += " isn't that cool.";
-				}
-				else
-				{
-					processedText = "Boring, that wasn't a meme.";
-				}
-			}	
-			else if (randomChoice == 3)
-			{
-				//User based talking
-			}
-			else if (randomChoice == 4)
-			{
-				userInputList.add(0, userText);
-				processedText = "Thanks for the input, " + myUser.getName();
-			}
-			else if (randomChoice == 5)
-			{
-				If(userInputChecker(userInput))
-				{
-					randomTopic = "yikes you knew what you said before";
-				}
-				else
-				{
-					randomTopic = "I don't think I have heard that before";
-				}
-			}
-			else
-			{
-				String userInput;
-				if(chatbotNameChecker(userInput))
-				{
-					randomTopic = chatbotNameConversation(userInput);
-				}
-				else
-				{
-					randomTopic = noNameConversation(userInput);
-				}
-			}
-	    	
-	    incrementChats();
-		return processedText;
+private String randomChatTopic(String userInput)
+{
+	String randomTopic = "";
+	int randomChoice = (int)(Math.random() * 7);
+	if(randomChoice == 0)
+	{
+		if (StringLengthChecker(userInput))
+		{
+			randomTopic = "That is way to long to read";
+		}
+		else
+		{
+			randomTopic = "short messages are short on meaning";
+		}
 	}
-	
+	else if(randomChoice == 1)
+	{
+		if(contentChecker(userInput))
+		{
+			randomTopic = "you know that the secret involves" + userInput;
+		}
+		else
+		{
+			randomTopic = "";
+		}
+	}
+	else if(randomChoice == 2)
+	{
+		if(memeChecker(userInput))
+		{
+			randomTopic = "hey, you found a meme:" + userInput;
+			randomTopic += "isn't that cool.";
+		}
+		else
+		{
+			randomTopic = "That was not a meme.";
+		}
+	}
+	else if(randomChoice == 3)
+	{
+		randomTopic = chooseRandomUserInfo(userInput);
+	}
+	else if(randomChoice == 4)
+	{
+		userInputList.add(0, userInput);
+		randomTopic = "Thanks for the input, " + myUser.getName();
+	}
+	else if (randomChoice == 5)
+	{
+		if(userInputChecker(userInput))
+		{
+			randomTopic = "Yikes you knew whar you said before!";
+		}
+		else
+		{
+			randomTopic = "I don't think I have heard that one before";
+		}
+	}
+	else
+	{
+		if(chatbotNameChecker(userInput))
+		{
+			randomTopic = chatbotNameConversation(userInput);
+		}
+		else
+		{
+			randomTopic = noNameConversation(userInput);
+		}
+	}
+
+	return randomTopic;
+}
+
 	private String randomChatTopic(String userText)
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	private String introductionUser(String userText)
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -335,9 +312,7 @@ public class Chatbot
 	private String chatbotNameConversation(String currentInput)
 	{
 		String nameConversation = "This is what you typed after my name: ";
-		
 		nameConversation.concat(currentInput.substring(currentInput.indexOf(this.getName()) + this.getName().length() -1));
-		
 		return nameConversation;
 	}
 	
